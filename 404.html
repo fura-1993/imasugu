@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#173b36">
+    <title>ページが見つかりません｜便利屋 いますぐ365</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+      .not-found {
+        display: grid;
+        min-height: 100svh;
+        place-items: center;
+        padding: 2rem 1rem;
+        background:
+          radial-gradient(circle at 15% 15%, rgba(231, 164, 75, 0.24), transparent 28rem),
+          #f8f6f0;
+        text-align: center;
+      }
+
+      .not-found__card {
+        width: min(100%, 680px);
+        padding: clamp(2rem, 7vw, 4.5rem);
+        border: 1px solid rgba(23, 59, 54, 0.1);
+        border-radius: 2rem;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 1.5rem 4rem rgba(23, 59, 54, 0.1);
+      }
+
+      .not-found__number {
+        margin: 0;
+        color: #c5732b;
+        font-size: clamp(4rem, 24vw, 9rem);
+        font-weight: 900;
+        line-height: 0.85;
+        letter-spacing: -0.08em;
+      }
+
+      .not-found h1 {
+        margin: 1.5rem 0 0.75rem;
+        color: #173b36;
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+      }
+
+      .not-found p {
+        margin: 0 auto;
+        color: #53625f;
+        line-height: 1.9;
+      }
+
+      .not-found__actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 2rem;
+      }
+
+      .not-found__actions a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.2rem;
+        padding: 0.75rem 1.25rem;
+        border: 1px solid #173b36;
+        border-radius: 999px;
+        color: #173b36;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .not-found__actions a:first-child {
+        background: #173b36;
+        color: #fff;
+      }
+    </style>
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <main class="not-found" id="main-content">
+      <section class="not-found__card" aria-labelledby="not-found-title">
+        <p class="not-found__number" aria-hidden="true">404</p>
+        <h1 id="not-found-title">ページが見つかりません</h1>
+        <p>URLが変更されたか、ページが削除された可能性があります。<br>お手数ですが、ホームから目的の情報をお探しください。</p>
+        <div class="not-found__actions">
+          <a href="/">ホームへ戻る</a>
+          <a href="tel:08055350365">080-5535-0365 に電話</a>
+          <a href="https://lin.ee/BLQjGlF" target="_blank" rel="noopener noreferrer">LINEで相談<span class="sr-only">（新しいタブで開きます）</span></a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
