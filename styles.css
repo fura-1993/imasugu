@@ -567,14 +567,8 @@ button.button:focus-visible,
   line-height: 1.95;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 32px;
-}
-
 .hero-microcopy {
-  margin: 12px 0 0;
+  margin: 18px 0 0;
   color: var(--muted);
   font-size: 11px;
 }
@@ -2370,8 +2364,6 @@ button.button:focus-visible,
   .phone-button svg { width: 39px; height: 39px; padding: 9px; }
   .hero-shell { grid-template-columns: minmax(0, 1fr) minmax(390px, 0.95fr); }
   .hero-copy { padding-inline: 42px; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions .button { width: 100%; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
   .service-card h3 { font-size: 20px; }
 }
@@ -2539,7 +2531,6 @@ button.button:focus-visible,
   .hero-break-mobile { display: block; }
   .hero-lead { margin-top: 20px; font-size: 14px; line-height: 1.9; }
   .hero-lead br { display: none; }
-  .hero-actions { margin-top: 25px; }
   .button-large { min-height: 59px; }
   .hero-facts { margin-top: 26px; padding-top: 20px; }
   .hero-facts > div { padding-inline: 9px; }
@@ -2737,7 +2728,6 @@ button.button:focus-visible,
   .site-header,
   .mobile-cta,
   .site-footer,
-  .hero-actions,
   .contact-form-card {
     display: none !important;
   }
