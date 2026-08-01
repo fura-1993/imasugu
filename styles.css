@@ -431,37 +431,6 @@ button.button:focus-visible,
   color: #fff;
 }
 
-.button-large {
-  min-height: 64px;
-  padding: 13px 25px;
-  border-radius: 18px;
-  font-size: 15px;
-}
-
-.button-large svg {
-  width: 25px;
-  height: 25px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.button-large > span {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.button-large small {
-  margin-bottom: 3px;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  opacity: 0.78;
-}
-
 /* Hero */
 .hero {
   position: relative;
@@ -640,6 +609,8 @@ button.button:focus-visible,
 }
 
 .hero-media picture {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -649,7 +620,7 @@ button.button:focus-visible,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 67% center;
+  object-position: 50% 42%;
 }
 
 .hero-badge {
@@ -950,10 +921,11 @@ button.button:focus-visible,
 }
 
 .service-card {
+  position: relative;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  padding: 27px;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.68);
   border-radius: 28px;
   background: rgba(255, 253, 249, 0.9);
@@ -968,13 +940,60 @@ button.button:focus-visible,
   transform: translateY(-7px);
 }
 
+.service-photo {
+  position: relative;
+  flex: 0 0 auto;
+  aspect-ratio: 3 / 2;
+  margin: 0;
+  overflow: hidden;
+  background: #ded9d0;
+}
+
+.service-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(15, 38, 44, 0.18));
+  pointer-events: none;
+}
+
+.service-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.service-card:hover .service-photo img {
+  transform: scale(1.045);
+}
+
+.service-card-body {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 0 24px 24px;
+}
+
+.service-card-meta {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: -30px 0 17px;
+}
+
 .service-icon {
   width: 58px;
   height: 58px;
   display: grid;
   place-items: center;
-  margin-bottom: 20px;
+  margin: 0;
+  border: 4px solid rgba(255, 253, 249, 0.95);
   border-radius: 18px;
+  box-shadow: 0 8px 18px rgba(16, 45, 52, 0.12);
 }
 
 .service-icon svg {
@@ -997,10 +1016,8 @@ button.button:focus-visible,
 .icon-mint { background: #daeee8; color: #397c68; }
 
 .service-no {
-  position: absolute;
-  align-self: flex-end;
-  margin: 3px 1px 0 0;
-  color: #a7aeac;
+  margin: 0 1px 7px 0;
+  color: #7f8987;
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.12em;
@@ -1013,7 +1030,7 @@ button.button:focus-visible,
   letter-spacing: -0.025em;
 }
 
-.service-card > p:not(.service-no) {
+.service-card-body > p:not(.service-no) {
   margin: 0;
   color: var(--muted);
   font-size: 13px;
@@ -1036,7 +1053,7 @@ button.button:focus-visible,
   font-weight: 700;
 }
 
-.service-card > a {
+.service-card-body > a {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1047,12 +1064,12 @@ button.button:focus-visible,
   font-weight: 900;
 }
 
-.service-card > a span {
+.service-card-body > a span {
   font-size: 17px;
   transition: transform 0.25s var(--ease);
 }
 
-.service-card > a:hover span {
+.service-card-body > a:hover span {
   transform: translateX(4px);
 }
 
@@ -2440,8 +2457,8 @@ button.button:focus-visible,
   }
 
   .hero-copy { padding: 55px; }
-  .hero-media { min-height: 460px; }
-  .hero-media img { object-position: 57% center; }
+  .hero-media { order: -1; min-height: 460px; }
+  .hero-media img { object-position: 50% 38%; }
 
   .intro-grid,
   .area-grid,
@@ -2521,26 +2538,37 @@ button.button:focus-visible,
     padding: 16px;
   }
 
-  .hero { padding: 18px 0 31px; }
-  .hero-shell { border-radius: 26px; }
-  .hero-copy { padding: 35px 24px 30px; }
-  .eyebrow { margin-bottom: 13px; font-size: 9px; }
-  .eyebrow span { display: table; margin: 0 0 8px; }
-  .hero h1 { font-size: clamp(31px, 10vw, 42px); line-height: 1.35; }
+  .hero { padding: 12px 0 31px; }
+  .hero-shell { display: flex; flex-direction: column; border-radius: 28px; }
+  .hero-copy {
+    z-index: 4;
+    margin: -58px 12px 0;
+    padding: 27px 18px 28px;
+    border-radius: 25px 25px 0 0;
+    background: rgba(255, 253, 249, 0.97);
+    box-shadow: 0 -16px 35px rgba(16, 45, 52, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  .eyebrow { margin-bottom: 12px; font-size: 9px; }
+  .eyebrow span { display: inline-block; margin: 0 7px 0 0; }
+  .hero h1 { font-size: clamp(30px, 8.2vw, 35px); line-height: 1.34; }
   .hero h1 strong { display: block; }
-  .hero-break-mobile { display: block; }
-  .hero-lead { margin-top: 20px; font-size: 14px; line-height: 1.9; }
+  .hero-break-mobile { display: inline; }
+  .hero-lead { margin-top: 18px; font-size: 14px; line-height: 1.85; }
   .hero-lead br { display: none; }
-  .button-large { min-height: 59px; }
-  .hero-facts { margin-top: 26px; padding-top: 20px; }
+  .hero-microcopy { margin-top: 12px; font-size: 10px; line-height: 1.7; }
+  .hero-facts { margin-top: 22px; padding-top: 18px; }
   .hero-facts > div { padding-inline: 9px; }
   .hero-facts dd strong { font-size: 18px; }
   .hero-facts dd { font-size: 10px; }
-  .hero-media { min-height: 350px; }
-  .hero-media img { object-position: 62% center; }
+  .hero-media { min-height: clamp(275px, 72vw, 320px); }
+  .hero-media::before {
+    background: linear-gradient(180deg, transparent 48%, rgba(26, 36, 36, 0.3) 100%);
+  }
+  .hero-media img { object-position: 50% 36%; }
   .hero-badge { padding: 9px 11px; border-radius: 12px; }
-  .hero-badge-top { top: 14px; right: 14px; }
-  .hero-badge-bottom { right: 14px; bottom: 14px; }
+  .hero-badge-top { display: none; }
+  .hero-badge-bottom { top: 14px; right: auto; bottom: auto; left: 14px; }
   .hero-badge strong { font-size: 11px; }
   .hero-badge small { font-size: 9px; }
   .hero-badge svg { width: 22px; height: 22px; }
@@ -2565,9 +2593,10 @@ button.button:focus-visible,
   .reason-number { font-size: 50px; }
 
   .service-grid { grid-template-columns: 1fr; gap: 12px; }
-  .service-card { padding: 25px; border-radius: 24px; }
+  .service-card { border-radius: 24px; }
+  .service-card-body { padding: 0 22px 23px; }
   .service-card h3 { font-size: 20px; }
-  .service-card > p:not(.service-no) { font-size: 13px; }
+  .service-card-body > p:not(.service-no) { font-size: 13px; }
 
   .small-jobs { margin-top: 20px; padding: 28px 23px; border-radius: 24px; }
   .small-jobs ul { grid-template-columns: repeat(2, 1fr); gap: 7px; }
@@ -2699,6 +2728,9 @@ button.button:focus-visible,
 }
 
 @media (max-width: 390px) {
+  .hero-media { min-height: 270px; }
+  .hero-copy { margin: -50px 8px 0; padding: 24px 12px 26px; }
+  .hero h1 { font-size: clamp(29px, 8vw, 32px); line-height: 1.32; }
   .hero-facts > div { padding-inline: 6px; }
   .hero-facts dd strong { font-size: 16px; }
   .fee-grid { grid-template-columns: 1fr; }
