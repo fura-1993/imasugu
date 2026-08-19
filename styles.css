@@ -17,7 +17,6 @@
   --navy-deep: #102d34;
   --sage: #dbe5d9;
   --green: #2d755d;
-  --line-green: #087a3e;
   --sand: #e7c586;
   --yellow: #f1cf68;
   --shadow-sm: 0 10px 30px rgba(24, 39, 42, 0.07);
@@ -396,28 +395,6 @@ button.button:focus-visible,
 
 .button:hover {
   transform: translateY(-2px);
-}
-
-.button-primary {
-  background: var(--coral);
-  color: #fff;
-  box-shadow: 0 12px 26px rgba(210, 71, 44, 0.24);
-}
-
-.button-primary:hover {
-  background: var(--coral-dark);
-  box-shadow: 0 16px 34px rgba(210, 71, 44, 0.3);
-}
-
-.button-line {
-  background: var(--line-green);
-  color: #fff;
-  box-shadow: 0 10px 22px rgba(6, 199, 85, 0.18);
-}
-
-.button-line:hover {
-  background: #066b35;
-  box-shadow: 0 14px 28px rgba(6, 199, 85, 0.24);
 }
 
 .button-outline {
@@ -916,7 +893,7 @@ button.button:focus-visible,
 .service-grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
@@ -1010,10 +987,8 @@ button.button:focus-visible,
 .icon-sand { background: #f2e5c8; color: #8e6527; }
 .icon-blue { background: #dfe9ee; color: #3e697b; }
 .icon-green { background: #dce9dc; color: #487353; }
-.icon-purple { background: #e7e0ec; color: #755989; }
 .icon-navy { background: #dce5e7; color: #315c65; }
 .icon-yellow { background: #f8ebbc; color: #917018; }
-.icon-mint { background: #daeee8; color: #397c68; }
 
 .service-no {
   margin: 0 1px 7px 0;
@@ -1847,9 +1822,9 @@ button.button:focus-visible,
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
+  grid-template-columns: minmax(0, 720px);
+  justify-content: center;
   align-items: start;
-  gap: clamp(50px, 7vw, 90px);
 }
 
 .contact-intro .eyebrow {
@@ -1901,9 +1876,6 @@ button.button:focus-visible,
   font-weight: 900;
 }
 
-.contact-option.line .contact-option-icon { background: var(--line-green); }
-.contact-option.mail .contact-option-icon { background: #577981; }
-
 .contact-option-icon svg {
   width: 24px;
   height: 24px;
@@ -1939,162 +1911,6 @@ button.button:focus-visible,
   margin-top: 4px;
   color: rgba(255, 255, 255, 0.52);
   font-size: 9px;
-}
-
-.contact-form-card {
-  padding: clamp(28px, 4vw, 48px);
-  border-radius: var(--radius-lg);
-  background: var(--paper);
-  color: var(--ink);
-  box-shadow: 0 30px 70px rgba(5, 19, 22, 0.28);
-}
-
-.form-heading {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 30px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--line-light);
-}
-
-.form-heading > span {
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
-  border-radius: 17px;
-  background: var(--coral-pale);
-  color: var(--coral-dark);
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.form-heading h3 {
-  margin: 0;
-  font-size: 21px;
-}
-
-.form-heading p {
-  margin: 3px 0 0;
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.field-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 17px;
-}
-
-.field > span {
-  font-size: 11px;
-  font-weight: 800;
-}
-
-.field em {
-  margin-left: 5px;
-  color: var(--coral-dark);
-  font-size: 9px;
-  font-style: normal;
-}
-
-.field input,
-.field select,
-.field textarea {
-  width: 100%;
-  min-height: 52px;
-  padding: 13px 15px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  outline: none;
-  background: #fff;
-  font-size: 14px;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.field textarea {
-  min-height: 132px;
-  resize: vertical;
-}
-
-.field input::placeholder,
-.field textarea::placeholder {
-  color: #a9afad;
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  border-color: var(--coral);
-  box-shadow: 0 0 0 4px rgba(232, 98, 67, 0.09);
-}
-
-.field input:focus-visible,
-.field select:focus-visible,
-.field textarea:focus-visible {
-  outline: 3px solid #0b6473;
-  outline-offset: 2px;
-}
-
-.check-field {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  margin: 3px 0 20px;
-  color: var(--muted);
-  font-size: 10px;
-  line-height: 1.65;
-}
-
-.check-field input {
-  width: 17px;
-  height: 17px;
-  flex: 0 0 auto;
-  margin-top: 1px;
-  accent-color: var(--coral);
-}
-
-.check-field a {
-  color: var(--coral-dark);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.button-submit {
-  width: 100%;
-  min-height: 58px;
-  border: 0;
-  border-radius: 15px;
-}
-
-.button-submit span {
-  font-size: 20px;
-}
-
-.form-note,
-.form-status {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 9px;
-  line-height: 1.7;
-  text-align: center;
-}
-
-.form-status:not(:empty) {
-  padding: 10px;
-  border-radius: 9px;
-  background: var(--coral-pale);
-  color: var(--coral-dark);
 }
 
 /* Company */
@@ -2497,7 +2313,6 @@ button.button:focus-visible,
   }
 
   .faq-intro { position: static; }
-  .contact-shell { gap: 48px; }
   .company-grid { gap: 45px; }
 
   .footer-grid {
@@ -2656,11 +2471,6 @@ button.button:focus-visible,
   .faq-answer { grid-template-columns: 33px 1fr; gap: 9px; padding-right: 10px; }
   .faq-answer p { font-size: 12px; }
 
-  .contact-shell { gap: 40px; }
-  .contact-form-card { padding: 26px 20px; border-radius: 25px; }
-  .form-heading > span { width: 48px; height: 48px; }
-  .form-heading h3 { font-size: 17px; }
-  .field-row { grid-template-columns: 1fr; gap: 0; }
   .contact-option strong { font-size: 14px; }
 
   .company-table { padding: 8px 20px; border-radius: 24px; }
@@ -2681,7 +2491,7 @@ button.button:focus-visible,
     bottom: 0;
     left: 0;
     display: grid;
-    grid-template-columns: 1fr 92px;
+    grid-template-columns: 1fr;
     gap: 8px;
     padding: 8px max(10px, env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
     border-top: 1px solid rgba(221, 215, 205, 0.7);
@@ -2719,7 +2529,6 @@ button.button:focus-visible,
 
   .mobile-cta-phone span { display: flex; flex-direction: column; line-height: 1.2; }
   .mobile-cta-phone small { margin-bottom: 2px; font-size: 10px; font-weight: 700; opacity: 0.85; }
-  .mobile-cta-line { background: var(--line-green); color: #fff; font-size: 12px; font-weight: 900; }
 
   .subpage-hero { padding: 65px 0 40px; }
   .legal-content { width: min(calc(100% - 32px), 860px); padding: 55px 0 90px; }
@@ -2759,8 +2568,7 @@ button.button:focus-visible,
   .utility-bar,
   .site-header,
   .mobile-cta,
-  .site-footer,
-  .contact-form-card {
+  .site-footer {
     display: none !important;
   }
 
